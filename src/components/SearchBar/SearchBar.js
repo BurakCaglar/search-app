@@ -44,7 +44,7 @@ const SearchBar = () => {
   };
 
   const handleChange = (e) => {
-    setQuery(e.target.value);
+    setQuery(e.target.value.toLowerCase());
   };
 
   const handleSubmit = (e) => {
@@ -93,12 +93,18 @@ const SearchBar = () => {
       : setSampleResults({ ...sampleResults, itemsToShow: 3, expanded: false });
   };
 
+  const searchQueryFromObject = (arr, searchKey) => {
+    return arr.filter((obj) =>
+      Object.keys(obj).some((key) =>
+        obj[key].toString().toLowerCase().includes(searchKey)
+      )
+    );
+  };
+
   const setSuggestions = () => {
     setSampleResults({
       ...sampleResults,
-      data: data.filter((dataItem) =>
-        dataItem.country.toLocaleLowerCase().includes(query)
-      ),
+      data: searchQueryFromObject(data, query),
     });
   };
 
@@ -115,6 +121,7 @@ const SearchBar = () => {
           value={query}
           placeholder="search something"
           onChange={handleChange}
+          style={{ textTransform: "capitalize" }}
         />
         <button className="searchbar__button">Search</button>
       </form>
