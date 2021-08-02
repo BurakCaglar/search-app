@@ -1,0 +1,22 @@
+.search-results {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center; */
+  margin-top: 7rem;
+  &__list {
+    width: 910px;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: -1;
+  }
+
+  .searchbar__list {
+    padding: 1rem 1.8rem 1rem;
+  }
+}
+
+.searchbar {
+  &__form {
+    justify-content: center;
+  }
+}

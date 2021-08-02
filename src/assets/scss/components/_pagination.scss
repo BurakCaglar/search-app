@@ -1,0 +1,34 @@
+.pagination {
+  width: 80%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+
+  a {
+    padding: 10px;
+    margin: 8px;
+    border-radius: 5px;
+    border: 1px solid $border-primary-color;
+    color: $input-default-text-color;
+    cursor: pointer;
+    font-size: $font-med;
+    &:hover {
+      background-color: $hover-button-bg-color;
+      color: $default-button-text-color;
+      border-color: transparent;
+    }
+  }
+
+  &__active a {
+    color: $default-button-text-color;
+    background-color: $default-button-bg-color;
+    border-color: transparent;
+    &:hover {
+      color: $default-button-text-color;
+      background-color: $default-button-bg-color;
+      border-color: transparent;
+    }
+  }
+}

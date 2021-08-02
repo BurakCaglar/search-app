@@ -1,0 +1,64 @@
+$rem-baseline: 16;
+
+/**** INPUTS START ****/
+
+/* general values of input */
+$input-border-radius: 8px;
+$input-border: 2px;
+
+/* colors of input */
+$input-default-border-color: #000000;
+$input-default-bg-color: #ffffff;
+$input-default-placeholder-color: rgba(100, 100, 100, 0.5);
+$input-default-label-color: #686868;
+$input-default-text-color: #484848;
+
+$input-hover-border-color: rgba(0, 0, 0, 0.6);
+$input-hover-bg-color: rgba(100, 100, 100, 0.08);
+$input-hover-placeholder-color: rgba(100, 100, 100, 0.5);
+$input-hover-label-color: #686868;
+
+$input-error-border-color: #ff0000;
+$input-error-bg-color: #ffffff;
+$input-error-text-color: rgba(255, 0, 0, 0.5);
+$input-error-label-color: rgba(255, 0, 0, 0.5);
+
+/**** INPUTS END ****/
+
+/**** BUTTONS START ****/
+
+/* general values of input */
+$button-border-radius: 8px;
+
+/* colors of buttons */
+
+$default-button-text-color: #ffffff;
+$default-button-bg-color: #204080;
+$hover-button-bg-color: #4f75c2;
+
+/**** BUTTONS END ****/
+
+/**** ANIMATIONS  ****/
+
+$transition: all 0.5s;
+
+/**** FONTS START ****/
+
+/* font family */
+$primary-font: "Roboto", sans-serif;
+$primary-weight: 700;
+
+/* font size */
+$font-big: 1.8rem;
+$font-med: 1.4rem;
+$font-small: 1.2rem;
+
+/**** FONTS END ****/
+
+$border-primary-color: #484848;
+$border-secondary-color: #585858;
+$samples-location-color: #484848;
+$samples-name-color: #686868;
+$samples-email-color: #484848;
+$showmore-button-color: #000000;
+$max-width: 1240px;

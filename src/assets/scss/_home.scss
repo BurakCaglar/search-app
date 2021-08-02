@@ -1,0 +1,25 @@
+/*   @include mq(tablet, min) {
+    background-color: #f9f1e7;
+  }
+ */
+
+.homepage {
+  margin-top: 15rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4.4rem;
+
+  &__logo {
+    &::after {
+      content: "Search web app";
+      display: block;
+      text-align: right;
+      margin-right: -3.5rem;
+      margin-top: 1rem;
+      font-size: $font-med;
+      color: $input-default-text-color;
+    }
+  }
+}
