@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useSearchContext } from "../../contexts/useSearchContext";
 import mockData from "../../assets/data/mockData.json";
 import { SampleResultsList } from "../index";
 import { ShowButton } from "../index";
+
 const SearchBar = () => {
   const [query, setQuery] = useState("");
   const [sampleResults, setSampleResults] = useState({
@@ -100,8 +101,7 @@ const SearchBar = () => {
       ),
     });
   };
-  console.log(modal);
-  /* console.log(sampleResults); */
+
   return (
     <section className="searchbar">
       <form className="searchbar__form" onSubmit={handleSubmit}>

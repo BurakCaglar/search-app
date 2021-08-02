@@ -1,6 +1,5 @@
-import HomePage from "./pages/HomePage";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import SearchResultsPage from "./pages/SearchResultsPage";
+import { HomePage, SearchResultsPage } from "./pages";
 
 function App() {
   return (

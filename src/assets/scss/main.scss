@@ -1,11 +1,8 @@
-@import "./globals/variables";
-@import "./globals/grid";
+@import "./abstracts/abstracts.scss";
 
-@import "./mixin/z-index";
-@import "./mixin/media-query";
+@import "./layout/layout";
 
-@import "./base";
-@import "./home";
+@import "./base/base";
 
 @import "./pages/pages";
 @import "./components/components";

@@ -2,7 +2,7 @@ import React from "react";
 
 const SampleResult = ({ item, index }) => {
   const { name, city, date, country, email } = item;
-  console.log(date);
+
   return (
     <li className="searchbar__listitem searchbar__listitem--hover" key={index}>
       <div className="searchbar__leftside">

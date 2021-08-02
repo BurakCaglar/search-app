@@ -1,6 +1,5 @@
 import React from "react";
-import { Logo } from "../components";
-import SearchBar from "../components/SearchBar/SearchBar";
+import { Logo, SearchBar } from "../components";
 
 const Home = () => {
   return (

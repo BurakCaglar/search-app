@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+
 import { useSearchContext } from "../../contexts/useSearchContext";
 import ArrowIcon from "../../assets/images/arrow.png";
 
 const Sort = () => {
   const [modal, setModal] = useState(false);
-  const { state, changeSort } = useSearchContext();
+  const { changeSort } = useSearchContext();
   let modalRef = useRef();
 
   /* modal state toggle */

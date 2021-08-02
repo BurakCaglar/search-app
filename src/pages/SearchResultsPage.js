@@ -1,7 +1,5 @@
 import React from "react";
-import { Logo, Sort } from "../components";
-import SearchBar from "../components/SearchBar/SearchBar";
-import SearchResults from "../components/SearchResults/SearchResults";
+import { Logo, SearchBar, SearchResults } from "../components";
 
 const SearchResultsPage = () => {
   return (
