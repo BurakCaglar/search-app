@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
+import { v4 as uuidv4 } from "uuid";
 import { useHistory } from "react-router-dom";
 import { useSearchContext } from "../../contexts/useSearchContext";
 import mockData from "../../assets/data/mockData.json";
 import { SampleResultsList } from "../index";
 import { ShowButton } from "../index";
+import SearchDetail from "../SearchDetail/SearchDetail";
 
 const SearchBar = () => {
   const [query, setQuery] = useState("");
@@ -14,7 +16,7 @@ const SearchBar = () => {
   });
   const [danger, setDanger] = useState(false);
   const isInitialMount = useRef(true);
-  const { state, setResults } = useSearchContext();
+  const { state, setResults, setSamplesData } = useSearchContext();
   const [modal, setModal] = useState(false);
   let modalRef = useRef();
 
@@ -27,6 +29,7 @@ const SearchBar = () => {
     ).getTime();
 
     return {
+      id: uuidv4(),
       name: item[0],
       company: item[1],
       email: item[2],
@@ -79,9 +82,9 @@ const SearchBar = () => {
     };
   });
 
-  /*  useEffect(() => {
-    localStorage.setItem("resultsData", JSON.stringify(sampleResults.data));
-  }, [state.data]); */
+  useEffect(() => {
+    localStorage.setItem("resultsData", JSON.stringify(data));
+  }, [state.data]);
 
   const showMoreOrLess = () => {
     sampleResults.itemsToShow === 3
@@ -101,12 +104,16 @@ const SearchBar = () => {
     );
   };
 
-  const setSuggestions = () => {
-    setSampleResults({
+  const setSuggestions = async () => {
+    await setSampleResults({
       ...sampleResults,
       data: searchQueryFromObject(data, query),
     });
   };
+
+  useEffect(() => {
+    setSamplesData(sampleResults.data);
+  }, [sampleResults.data]);
 
   return (
     <section className="searchbar">
@@ -129,7 +136,6 @@ const SearchBar = () => {
       {query.length > 0 && (
         <div ref={modalRef} className="searchbar__samples">
           <SampleResultsList sampleResults={sampleResults} />
-
           <ShowButton
             sampleResults={sampleResults}
             showMoreOrLess={showMoreOrLess}

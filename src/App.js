@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { HomePage, SearchResultsPage } from "./pages";
+import { SearchDetail } from "./components";
+import { HomePage, SearchResultsPage, SearchDetailPage } from "./pages";
 
 function App() {
   return (
@@ -7,7 +8,8 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route path="/search-results" component={SearchResultsPage} />
+          <Route exact path="/search-results" component={SearchResultsPage} />
+          <Route path="/search-results/:name" component={SearchDetailPage} />
         </Switch>
       </Router>
     </div>

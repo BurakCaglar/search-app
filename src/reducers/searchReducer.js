@@ -2,6 +2,7 @@ const searchReducer = (state, action) => {
   switch (action.type) {
     case "SET_RESULTS":
       return { ...state, data: action.payload };
+
     case "CHANGE_SORT":
       let newData = [];
       let tempData = state.data.slice();
@@ -22,6 +23,10 @@ const searchReducer = (state, action) => {
         });
       }
       return { ...state, data: newData };
+
+    case "SET_SAMPLES_DATA":
+      return { ...state, samplesData: action.payload };
+
     default:
       return state;
   }

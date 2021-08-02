@@ -1,0 +1,72 @@
+.page {
+  margin: 0 auto;
+  height: 100%;
+  width: 50vw;
+  background: #fff;
+  box-shadow: 0 0 0 0.75pt #d1d1d1, 0 0 3pt 0.75pt #ccc;
+  margin-bottom: 0.5in;
+  text-align: center;
+  img {
+    max-width: 100%;
+  }
+}
+@media screen and (max-width: 830px) {
+  .page {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.margins {
+  /*background:#EEE;*/
+  margin: 0;
+  margin-left: 0.5in;
+  margin-right: 0.5in;
+  margin-top: 0.5in;
+  padding-top: 0.5in;
+  padding-bottom: 0.5in;
+}
+
+.basic-info {
+  address {
+    display: flex;
+    flex-direction: column;
+    span {
+      display: box;
+    }
+  }
+}
+
+h1,
+.location {
+  text-transform: capitalize;
+}
+
+h1 {
+  font-size: 2rem;
+}
+h2 {
+  font-size: 1.75rem;
+  margin-bottom: 20px;
+}
+h3 {
+  font-size: 1.25rem;
+}
+
+.detail-text {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+hr {
+  border: none;
+  border-bottom: 1px solid #000;
+  margin: 20px 0;
+}
+
+.center {
+  text-align: center;
+  margin-left: 0;
+  margin-right: 0;
+}

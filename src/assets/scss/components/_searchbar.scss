@@ -70,11 +70,13 @@
   /* Sample Results */
 
   &__samples {
+    position: relative;
     margin-top: 1.8rem;
     border: 2px solid $border-primary-color;
     border-radius: 4px;
-    z-index: 5 !important;
-    background-color: white !important;
+    z-index: 5;
+    background-color: white;
+
     @media screen and (min-width: 1140px) {
       width: 720px;
       display: inline-block;
@@ -83,8 +85,10 @@
 
   &__list {
     overflow-y: auto;
+    max-height: 300px;
     @media screen and (min-width: 1140px) {
       padding: 3rem 1.8rem 3.6rem;
+      max-height: 300px;
     }
   }
 
@@ -92,7 +96,9 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    position: relative;
+    background: linear-gradient(black, black) 0 calc(100% - 10px) / 100% 2px
+        no-repeat,
+      white;
     cursor: pointer;
     padding: 2rem;
     margin-left: -1.5rem;
@@ -144,7 +150,7 @@
   &__show-button {
     display: flex;
     justify-content: center;
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
     span {
       color: $showmore-button-color;
       font-size: $font-small;

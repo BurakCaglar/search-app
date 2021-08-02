@@ -2,10 +2,16 @@
   width: 80%;
   height: 40px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
 
+  li {
+    @include mq(mobile, max) {
+      margin-top: 3rem;
+    }
+  }
   a {
     padding: 10px;
     margin: 8px;
@@ -14,6 +20,7 @@
     color: $input-default-text-color;
     cursor: pointer;
     font-size: $font-med;
+
     &:hover {
       background-color: $hover-button-bg-color;
       color: $default-button-text-color;

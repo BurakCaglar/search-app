@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSearchContext } from "../../contexts/useSearchContext";
 import ReactPaginate from "react-paginate";
-import SampleResult from "../SampleResults/SampleResult";
+import SearchResult from "./SearchResult";
 import Sort from "../Sort/Sort";
 
 const SearchResults = () => {
@@ -15,17 +15,16 @@ const SearchResults = () => {
   /* rendered results */
   const renderedResults = results
     .slice(pageVisited, pageVisited + resultsPerPage)
-    .map((result, index) => (
-      <div
-        key={index}
-        style={{ position: "relative" }}
-        className="search-results__list"
-      >
-        <ul className="searchbar__list ">
-          <SampleResult item={result} />
-        </ul>
-      </div>
-    ));
+    .map((item, index) => {
+      /*  console.log(item); */
+      return (
+        <div key={index} className="search-results__list">
+          <ul className="searchbar__list">
+            <SearchResult item={item} index={index} />
+          </ul>
+        </div>
+      );
+    });
 
   /* local storeages */
   /*   const getLocalStorage = (data) => {
@@ -65,6 +64,7 @@ const SearchResults = () => {
           nextLinkClassName={"pagination__nextbutton"}
           disabledClassName={"pagination__disabled"}
           activeClassName={"pagination__active"}
+          pageClassName={"pagination_button"}
           //  initialPage={getLocalStorage("pageNumber")}
         />
       )}

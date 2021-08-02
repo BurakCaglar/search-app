@@ -3,7 +3,7 @@ import searchReducer from "../reducers/searchReducer";
 
 const SearchContext = createContext();
 
-const initialState = { data: [] };
+const initialState = { data: [], samplesData: [] };
 
 export const SearchProvider = ({ children }) => {
   const [state, dispatch] = useReducer(searchReducer, initialState);
@@ -11,6 +11,13 @@ export const SearchProvider = ({ children }) => {
   const setResults = (data) => {
     dispatch({
       type: "SET_RESULTS",
+      payload: data,
+    });
+  };
+
+  const setSamplesData = (data) => {
+    dispatch({
+      type: "SET_SAMPLES_DATA",
       payload: data,
     });
   };
@@ -24,7 +31,9 @@ export const SearchProvider = ({ children }) => {
   };
 
   return (
-    <SearchContext.Provider value={{ state, setResults, changeSort }}>
+    <SearchContext.Provider
+      value={{ state, setResults, changeSort, setSamplesData }}
+    >
       {children}
     </SearchContext.Provider>
   );

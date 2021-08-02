@@ -12,11 +12,11 @@ const SearchResultsPage = () => {
           <SearchBar />
         </div>
       </nav>
-      <div>
+      <section>
         <div className="search-results">
           <SearchResults />
         </div>
-      </div>
+      </section>
     </main>
   );
 };
