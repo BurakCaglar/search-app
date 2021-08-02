@@ -7,13 +7,14 @@
   }
 
   &__input {
-    padding: 1rem 54rem 1rem 1.7rem;
+    padding: 1rem 49.5rem 1rem 1.7rem;
     border-radius: $input-border-radius;
     border: $input-border solid $input-default-border-color;
     background-color: $input-default-bg-color;
     color: $input-default-text-color;
     font-family: $primary-font;
     font-weight: $primary-weight;
+    font-size: $font-big;
 
     @include mq(tablet, max) {
       padding: 1rem 14rem 1rem 1.7rem;
