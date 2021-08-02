@@ -2,25 +2,35 @@
   &__headline {
     position: absolute;
     display: flex;
-    right: 28%;
+    right: 10%;
+    margin-top: -30px;
     font-size: $font-big;
     color: $input-default-text-color;
     z-index: 2;
-    top: 13%;
     cursor: pointer;
+    @media screen and (min-width: 1140px) {
+      right: 28%;
+      top: 13%;
+    }
   }
 
   &__items {
     display: flex;
     flex-direction: column;
     position: absolute;
-    right: 23.5%;
-    top: 16%;
+    right: 2%;
+    /* top: 47%; */
     padding: 0.5rem;
     border: 1px solid $border-primary-color;
     border-radius: 4px;
     z-index: 2;
     background-color: white;
+    @media screen and (min-width: 1140px) {
+      /*    right: 20px;
+      top: 28%; */
+      right: 23.5%;
+      top: 16%;
+    }
   }
 
   &__item {

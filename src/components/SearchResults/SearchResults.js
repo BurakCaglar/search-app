@@ -51,7 +51,7 @@ const SearchResults = () => {
   };
 
   return (
-    <section>
+    <section className="search-results__list-wrapper">
       {(results.length > 1 || state.data.length > 1) && <Sort />}
       {renderedResults}
       {results.length > 3 && (

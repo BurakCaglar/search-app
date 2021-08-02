@@ -1,6 +1,7 @@
 .searchbar {
   &__form {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 1.6rem;
   }
@@ -13,6 +14,14 @@
     color: $input-default-text-color;
     font-family: $primary-font;
     font-weight: $primary-weight;
+
+    @include mq(tablet, max) {
+      padding: 1rem 14rem 1rem 1.7rem;
+    }
+
+    @include mq(mobile, max) {
+      padding: 1rem 10rem 1rem 1.7rem;
+    }
 
     &::placeholder {
       color: $input-default-placeholder-color;
@@ -60,24 +69,27 @@
   /* Sample Results */
 
   &__samples {
-    width: 720px;
-    display: inline-block;
     margin-top: 1.8rem;
     border: 2px solid $border-primary-color;
     border-radius: 4px;
     z-index: 5 !important;
     background-color: white !important;
+    @media screen and (min-width: 1140px) {
+      width: 720px;
+      display: inline-block;
+    }
   }
 
   &__list {
-    width: 100%;
-    padding: 3rem 1.8rem 3.6rem;
-    max-height: 300px;
     overflow-y: auto;
+    @media screen and (min-width: 1140px) {
+      padding: 3rem 1.8rem 3.6rem;
+    }
   }
 
   &__listitem {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     position: relative;
     cursor: pointer;
