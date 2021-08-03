@@ -5,7 +5,6 @@ import {
   MapContainer,
   Marker,
   Popup,
-  /* Rectangle, */
   TileLayer,
   useMap,
 } from "react-leaflet";
@@ -20,11 +19,6 @@ const Map = ({ lat, lon, city }) => {
   const newLon = lon !== undefined && lon;
 
   const center = [newLat, newLon];
-  /* const rectangle = [
-    [51.49, -0.08],
-    [51.5, -0.06],
-  ]; */
-
   const bounds = latLngBounds([center]);
 
   function ChangeView({ center, zoom }) {
@@ -59,9 +53,7 @@ const Map = ({ lat, lon, city }) => {
         >
           <Popup>Here is {city && city}</Popup>
         </Marker>
-        <FeatureGroup pathOptions={purpleOptions}>
-          {/* <Rectangle bounds={rectangle} /> */}
-        </FeatureGroup>
+        <FeatureGroup pathOptions={purpleOptions}></FeatureGroup>
       </MapContainer>
     </div>
   );

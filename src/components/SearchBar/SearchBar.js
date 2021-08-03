@@ -5,7 +5,6 @@ import { useSearchContext } from "../../contexts/useSearchContext";
 import mockData from "../../assets/data/mockData.json";
 import { SampleResultsList } from "../index";
 import { ShowButton } from "../index";
-import SearchDetail from "../SearchDetail/SearchDetail";
 
 const SearchBar = () => {
   const [query, setQuery] = useState("");
@@ -15,10 +14,11 @@ const SearchBar = () => {
     expanded: false,
   });
   const [danger, setDanger] = useState(false);
-  const isInitialMount = useRef(true);
   const { state, setResults, setSamplesData } = useSearchContext();
   const [modal, setModal] = useState(false);
-  let modalRef = useRef();
+  const modalRef = useRef();
+  const history = useHistory();
+  /* Data changed to "key: value" */
 
   const data = mockData.data.map((item) => {
     const editedDate = item[3].split("/");
@@ -39,17 +39,12 @@ const SearchBar = () => {
     };
   }, {});
 
-  let history = useHistory();
-
-  /* modal state toggle */
-  const changeModalVisibility = () => {
-    setModal(!modal);
-  };
-
+  /* search query listener */
   const handleChange = (e) => {
     setQuery(e.target.value.toLowerCase());
   };
 
+  /* submit button */
   const handleSubmit = (e) => {
     e.preventDefault();
     setResults(sampleResults.data);
@@ -63,6 +58,7 @@ const SearchBar = () => {
     setQuery("");
   };
 
+  /* use effects */
   useEffect(() => {
     if (query.trim() !== "") {
       setSuggestions();
@@ -71,11 +67,11 @@ const SearchBar = () => {
 
   useEffect(() => {
     const handler = (event) => {
-      if (!modalRef.current.contains(event.target)) {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
         setModal(false);
       }
     };
-    /* document.addEventListener("mousedown", handler); */
+    document.addEventListener("mousedown", handler);
 
     return () => {
       document.removeEventListener("mousedown", handler);
@@ -85,6 +81,12 @@ const SearchBar = () => {
   useEffect(() => {
     localStorage.setItem("resultsData", JSON.stringify(data));
   }, [state.data]);
+
+  useEffect(() => {
+    setSamplesData(sampleResults.data);
+  }, [sampleResults.data]);
+
+  /* show more & show less button */
 
   const showMoreOrLess = () => {
     sampleResults.itemsToShow === 3
@@ -96,6 +98,8 @@ const SearchBar = () => {
       : setSampleResults({ ...sampleResults, itemsToShow: 3, expanded: false });
   };
 
+  /* search query from all of the words into array in object */
+
   const searchQueryFromObject = (arr, searchKey) => {
     return arr.filter((obj) =>
       Object.keys(obj).some((key) =>
@@ -104,16 +108,14 @@ const SearchBar = () => {
     );
   };
 
+  /* samples results for searching (suggested list) */
+
   const setSuggestions = async () => {
     await setSampleResults({
       ...sampleResults,
       data: searchQueryFromObject(data, query),
     });
   };
-
-  useEffect(() => {
-    setSamplesData(sampleResults.data);
-  }, [sampleResults.data]);
 
   return (
     <section className="searchbar">
@@ -128,12 +130,13 @@ const SearchBar = () => {
           value={query}
           placeholder="search something"
           onChange={handleChange}
+          onClick={() => setModal(true)}
           style={{ textTransform: "capitalize" }}
         />
         <button className="searchbar__button">Search</button>
       </form>
 
-      {query.length > 0 && (
+      {query.length > 0 && modal && (
         <div ref={modalRef} className="searchbar__samples">
           <SampleResultsList sampleResults={sampleResults} />
           <ShowButton

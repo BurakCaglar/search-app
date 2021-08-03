@@ -8,7 +8,7 @@
   margin-right: auto;
 
   li {
-    @include mq(mobile, max) {
+    @media screen and (max-width: 640px) {
       margin-top: 3rem;
     }
   }
@@ -20,6 +20,10 @@
     color: $input-default-text-color;
     cursor: pointer;
     font-size: $font-med;
+
+    @media screen and (max-width: 640px) {
+      padding: 5px;
+    }
 
     &:hover {
       background-color: $hover-button-bg-color;

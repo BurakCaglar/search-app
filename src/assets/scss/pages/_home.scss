@@ -7,6 +7,10 @@
   gap: 4.4rem;
 
   &__logo {
+    max-width: 300px;
+    svg {
+      width: 100%;
+    }
     &::after {
       content: "Search web app";
       display: block;
@@ -15,6 +19,10 @@
       margin-top: 1rem;
       font-size: $font-med;
       color: $input-default-text-color;
+
+      @include mq(mobile, max) {
+        margin-right: 0;
+      }
     }
   }
 }

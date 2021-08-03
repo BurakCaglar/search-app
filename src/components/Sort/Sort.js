@@ -8,36 +8,29 @@ const Sort = () => {
   const { changeSort } = useSearchContext();
   let modalRef = useRef();
 
-  /* modal state toggle */
-  const changeModalVisibility = () => {
-    setModal(!modal);
-  };
-
   /* use effect */
 
-  /*  useEffect(() => {
+  useEffect(() => {
     const handler = (event) => {
-      if (!modalRef.current.contains(event.target)) {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
         setModal(false);
       }
     };
-        document.addEventListener("mousedown", handler);
-    
+    document.addEventListener("mousedown", handler);
+
     return () => {
       document.removeEventListener("mousedown", handler);
     };
-  }); */
+  });
 
   return (
     <div className="sort">
-      <div className="sort__headline">
+      <div className="sort__headline" onClick={() => setModal(!modal)}>
         <img src={ArrowIcon} alt="arrow icon" />
-        <option className="" ref={modalRef} onClick={changeModalVisibility}>
-          Order By
-        </option>
+        <option className="">Order By</option>
       </div>
       {modal && (
-        <div className="sort__items">
+        <div ref={modalRef} className="sort__items">
           <option
             className="sort__item"
             onClick={(e) => changeSort(e)}
