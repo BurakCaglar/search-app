@@ -14,12 +14,12 @@ const searchReducer = (state, action) => {
       }
       if (action.payload === "name-az") {
         newData = tempData.sort((a, b) => {
-          return a.country.localeCompare(b.country);
+          return a.name.localeCompare(b.name);
         });
       }
       if (action.payload === "name-za") {
         newData = tempData.sort((a, b) => {
-          return b.country.localeCompare(a.country);
+          return b.name.localeCompare(a.name);
         });
       }
       return { ...state, data: newData };
